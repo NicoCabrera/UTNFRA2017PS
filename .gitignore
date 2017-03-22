@@ -1,3 +1,4 @@
 vendor/*
 notas.txt
 .vscode
+bower_components/

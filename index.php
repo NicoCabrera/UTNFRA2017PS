@@ -16,21 +16,10 @@ $container['view'] = function ($container) {
     return new \Slim\Views\PhpRenderer('templates');
 };
 
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
-    $response->getBody()->write("Hello, $name");
-
-    return $response;
-});
-
 // Render PHP template in route
 $app->get('/', function ($request, $response, $args) {
     return $this->view->render($response, 'login.php');
 })->setName('login');
 
-
 $app->run();
-
-$data = db::getPDO();
-
 ?>
