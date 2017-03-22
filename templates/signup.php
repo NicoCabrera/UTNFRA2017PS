@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>MyApp - Home</title>
+        <title>MyApp - Sign Up</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -12,19 +12,19 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Sign In</a></li>
-                <li><a href="signup">Sign Up</a></li>
+                <li><a href="login">Sign In</a></li>
+                <li><a href="#">Sign Up</a></li>
             </ul>
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container" ng-controller="LoginController" ng-app="myApp">
+    <div class="container" ng-controller="SignUpController" ng-app="myApp">
 
         <div class="page-header">
-            <h1><strong>{{appName}}</strong> <small>{{title}}</small></h1>
+            <h1><strong>{{title}}</strong></h1>
         </div>
 
-        <form action ="userValidation.php" method="POST" class="form-horizontal">
+        <form action ="userSignUpValidation.php" method="POST" class="form-horizontal">
             <div class="form-group">
                 <div class="col-sm-6">
                     <label for="username">Usuario</label>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-sm-10">
-                <input class="btn btn-primary" type="submit" value="Iniciar sesión">
+                <input class="btn btn-primary" type="submit" value="{{submit}}">
             </div>
         </form>
     </div>
@@ -51,6 +51,6 @@
     <script src ="js/modules/app.js"></script>
 
     <!--controllers angular-->
-    <script src ="js/controllers/loginController.js"></script>
+    <script src ="js/controllers/signupController.js"></script>
     </body>
 </html>

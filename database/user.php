@@ -46,8 +46,89 @@ class User
 	}
 
 //--METODO DE CLASE
-	public static function getUser($userid,$password) 
+	public static function getPDO() 
 	{	
-		$objetoAccesoDato = db::getPDO(); 
+		return $objetoAccesoDato = db::getInstance(); 
 	}
+
+	public static function getUser($username,$password)
+	{
+		try{
+			$db = User::getPDO();
+			$sql = "select * from users where username = :username and password = :password";
+			$resultado = $db->RetornarConsulta($sql);
+			$resultado->bindValue(":username",$username);
+			$resultado->bindValue(":password",$password);
+
+			$resultado->execute();
+			$numero_registro = $resultado->rowCount();
+
+			if($numero_registro !=0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}catch(Exception $ex){
+			die("Error: " . $ex->getMessage());
+		}
+	}
+
+	public static function getUserByUsername($username)
+	{
+		try{
+			$db = User::getPDO();
+			$sql = "select * from users where username = :username";
+			$resultado = $db->RetornarConsulta($sql);
+			$resultado->bindValue(":username",$username);
+
+			$resultado->execute();
+			$numero_registro = $resultado->rowCount();
+
+			if($numero_registro !=0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}catch(Exception $ex){
+			die("Error: " . $ex->getMessage());
+		}
+	}
+
+	public static function saveUser($username,$password)
+	{
+		try{
+			$db = User::getPDO();
+			$sql = "insert into users(username,password)values(:username,:password)";
+			$resultado = $db->RetornarConsulta($sql);
+			$resultado->bindValue(":username",$username);
+			$resultado->bindValue(":password",$password);
+
+			$resultado->execute();
+
+		}catch(Exception $ex){
+			die("Error: " . $ex->getMessage());
+		}
+	}
+	public static function getAllUsers()
+	{
+		try{
+			$db = User::getPDO();
+			$sql = "select * from users";
+			$resultado = $db->RetornarConsulta($sql);
+
+			$resultado->execute();
+
+		}catch(Exception $ex){
+			die("Error: " . $ex->getMessage());
+		}
+	}
+
+
+
 }

@@ -25,7 +25,7 @@ class db{
         return $this->objetoPDO->lastInsertId(); 
     }
  
-    public static function getPDO()
+    public static function getInstance()
     { 
         if (!isset(self::$ObjetoAccesoDatos)) {          
             self::$ObjetoAccesoDatos = new db(); 

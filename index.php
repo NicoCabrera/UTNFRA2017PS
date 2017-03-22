@@ -17,9 +17,26 @@ $container['view'] = function ($container) {
 };
 
 // Render PHP template in route
-$app->get('/', function ($request, $response, $args) {
+$app->any('/', function ($request, $response, $args) {
     return $this->view->render($response, 'login.php');
 })->setName('login');
 
+$app->any('/signup',function($request,$response,$args){
+    return $this->view->render($response,'signup.php');
+});
+
+$app->any('/login',function($request,$response,$args){
+    return $this->view->render($response,'login.php');
+});
+
+$app->any('/welcome',function($request,$response,$args){
+        return $this->view->render($response,'welcome.php');
+});
+
+$app->any("/logout",function($request,$response,$args){
+        session_start();
+        session_destroy();
+        return $this->view->render($response,'login.php');
+});
 $app->run();
 ?>
