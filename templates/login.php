@@ -12,8 +12,6 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Sign In</a></li>
-                <li><a href="signup">Sign Up</a></li>
             </ul>
         </div><!-- /.container-fluid -->
     </nav>
@@ -28,14 +26,14 @@
             <div class="form-group">
                 <div class="col-sm-6">
                     <label for="username">Usuario</label>
-                    <input type="text" class="form-control" name="username" placeholder="Ingrese su usuario" maxlength="50" ng-model="username">
+                    <input type="text" class="form-control" name="username" placeholder="Ingrese su usuario" maxlength="28" ng-model="username">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-6">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" class="form-control"placeholder="Ingrese su contraseña" maxlength="50" ng-model="password">
+                    <input type="password" name="password" class="form-control"placeholder="Ingrese su contraseña" maxlength="28" ng-model="password">
                 </div>
             </div>
             <div class="col-sm-10">

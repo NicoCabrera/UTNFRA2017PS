@@ -1,13 +1,11 @@
 <?php
-    require 'database/user.php';
+    require 'database/userDAO.php';
 
     $username = htmlentities(addslashes($_POST["username"]));
     $password = htmlentities(addslashes($_POST["password"]));
-    if(User::getUser($username,$password))
+    if(UserDAO::getUser($username,$password))
     {
-        session_start();
-        $_SESSION['username'] = $username;
-        header("location:welcome");
+        echo "Bienvenido " . $username;
     }
     else{
         echo "Usuario no econtrado";

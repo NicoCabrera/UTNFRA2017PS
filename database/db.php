@@ -20,11 +20,6 @@ class db{
         return $this->objetoPDO->prepare($sql); 
     }
     
-     public function RetornarUltimoIdInsertado()
-    { 
-        return $this->objetoPDO->lastInsertId(); 
-    }
- 
     public static function getInstance()
     { 
         if (!isset(self::$ObjetoAccesoDatos)) {          
