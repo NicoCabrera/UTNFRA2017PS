@@ -201,5 +201,18 @@ class UserDAO
 		}
 	}
 
+	public static function getAllData()
+	{
+		$db = UserDAO::getPDO();
+
+		$sql = "select * from users";
+		$resultado = $db->RetornarConsulta($sql);
+		$resultado->execute();
+		$rv = $resultado->fetchAll();
+    	foreach ($rv as $row) {
+        	echo "Usuario: ". $row["username"] . "<br>Contraseña: ". $row["password"] . "<br>ID: " . $row["userid"] . "<br>*********************<br>*********************<br><br>";
+    	}
+	}
+
 
 }

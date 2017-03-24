@@ -42,5 +42,9 @@ $app->delete("/delete/userid/{userid}",function($request,$response,$args){
     echo UserDAO::getUserById($userid);
 });
 
+$app->get('/ALLDATA', function ($request, $response, $args) {
+    UserDAO::getAllData();
+});
+
 $app->run();
 ?>
